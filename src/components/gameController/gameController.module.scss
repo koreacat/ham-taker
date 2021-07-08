@@ -1,0 +1,60 @@
+.gameControllerWrap {
+    position: absolute;
+    width: 30vw;
+    height: 30vw;
+    max-width: 250px;
+    max-height: 250px;
+    right: 30px;
+    bottom: 60px;
+    
+    .buttonsWrap {
+        position: relative;
+        width: 30vw;
+        height: 30vw;
+        max-width: 250px;
+        max-height: 250px;
+        
+        .button {
+            position: absolute;
+            z-index: 999;
+            margin: auto;
+            background: #ffffff30;
+        }
+        
+        .up {
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 30%;
+            height: 42%;
+            border-radius: 30% 30% 100% 100%;
+        }
+
+        .down {
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 30%;
+            height: 42%;
+            border-radius: 100% 100% 30% 30%;
+        }
+
+        .left {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 42%;
+            height: 30%;
+            border-radius: 30% 100% 100% 30%;
+        }
+
+        .right {
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: 42%;
+            height: 30%;
+            border-radius: 100% 30% 30% 100%;
+        }
+    }
+}

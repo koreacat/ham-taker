@@ -1,0 +1,49 @@
+$imgPath: '../../resources/img/characters/';
+
+.charactersWrap {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    bottom: 0;
+    
+    .character {
+        width: 8vw;
+        height: 8vw;
+        max-width: 50px;
+        max-height: 50px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+    }
+
+    .lucifer {
+        background-image: url($imgPath + 'imgLucifer.gif');
+    }
+    .malina {
+        background-image: url($imgPath + 'imgMalina.gif');
+    }
+    .modeus {
+        background-image: url($imgPath + 'imgModeus.gif');
+    }
+    .azazel {
+        background-image: url($imgPath + 'imgAzazel.gif');
+    }
+    .justice {
+        background-image: url($imgPath + 'imgJustice.gif');
+    }
+    .judgement {
+        background-image: url($imgPath + 'imgJudgement.gif');
+    }
+    .zdrada {
+        background-image: url($imgPath + 'imgZdrada.gif');
+    }
+    .cerberus {
+        background-image: url($imgPath + 'imgCerberus.gif');
+    }
+    .pandemonica {
+        background-image: url($imgPath + 'imgPandemonica.gif');
+    }
+}

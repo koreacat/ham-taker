@@ -1,11 +1,14 @@
 import React from 'react';
-import HamTaker from './components/HamTaker';
 import './App.css';
+import { Managers } from './managers';
+import { useManagers } from './util/ManagerProvider';
 
 function App() {
+	const {sceneManager} = useManagers();
+
 	return (
 		<div className="app">
-			<HamTaker/>
+			{sceneManager.getScene()}
 		</div>
 	);
 }

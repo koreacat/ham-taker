@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from "react";
-import "./HamTaker.scss";
+import "./game.scss";
 
-import LandType from "./maps/MapType";
-import Characters from "./characters/Characters";
-import GameController from "./controller/GameController";
+enum LandType {
+    space,
+    land,
+    rock,
+    thorn,
+    goal,
+    spikeTrap,
+    skeleton,
+}
+
+
 
 const startPoint = () => {
 	return { x: 0, y: 0 };
@@ -32,7 +40,7 @@ const stage = () => {
 	];
 }
 
-const HamTaker = () => {
+const Game = () => {
 	const distance = 50;
 	const [clear, setClear] = useState(false);
 	const [coordinates, setCoordinates] = useState(startPoint);
@@ -102,7 +110,7 @@ const HamTaker = () => {
 			case LandType.land:
 				setSpike(!spike);
 				setLife(life - 1);
-				let moveSound01 = new Audio(require("../audio/move.wav"));
+				let moveSound01 = new Audio(require("../../../resources/audio/move.wav"));
 				moveSound01.play();
 				return true;
 			case LandType.thorn:
@@ -112,16 +120,16 @@ const HamTaker = () => {
 					return;
 				}
 				setLife(life - 2);
-				let spikesSound01 = new Audio(require("../audio/spikes.wav"));
+				let spikesSound01 = new Audio(require("../../../resources/audio/spikes.wav"));
 				spikesSound01.play();
 				return true;
 			case LandType.goal:
 				setSpike(!spike);
 				setLife(life - 1);
-				let moveSound02 = new Audio(require("../audio/move.wav"));
+				let moveSound02 = new Audio(require("../../../resources/audio/move.wav"));
 				moveSound02.play();
 
-				let successSound = new Audio(require("../audio/success.wav"));
+				let successSound = new Audio(require("../../../resources/audio/success.wav"));
 				successSound.play();
 				setClear(true);
 				return true;
@@ -135,11 +143,11 @@ const HamTaker = () => {
 				}
 
 				if (spike) {
-					let moveSound03 = new Audio(require("../audio/move.wav"));
+					let moveSound03 = new Audio(require("../../../resources/audio/move.wav"));
 					moveSound03.play();
 					setLife(life - 1);
 				} else {
-					let spikesSound02 = new Audio(require("../audio/spikes.wav"));
+					let spikesSound02 = new Audio(require("../../../resources/audio/spikes.wav"));
 					spikesSound02.play();
 					setLife(life - 2);
 				}
@@ -151,7 +159,7 @@ const HamTaker = () => {
 						data[coordinates.y][coordinates.x] === LandType.spikeTrap &&
 						!spike
 					) {
-						let spikesSound = new Audio(require("../audio/spikes.wav"));
+						let spikesSound = new Audio(require("../../../resources/audio/spikes.wav"));
 						spikesSound.play();
 						setLife(life - 2);
 					} else {
@@ -179,7 +187,7 @@ const HamTaker = () => {
 			if (data[dy][dx] === LandType.land) {
 				data[dy][dx] = LandType.rock;
 				data[y][x] = LandType.land;
-				let stoneSound = new Audio(require("../audio/stone_kick.wav"));
+				let stoneSound = new Audio(require("../../../resources/audio/stone_kick.wav"));
 				stoneSound.play();
 				return true;
 			}
@@ -207,7 +215,7 @@ const HamTaker = () => {
 
 	const failAnimation = () => {
 		setFailHeight("50%");
-		let part1Sound = new Audio(require("../audio/screen_changer_part1.wav"));
+		let part1Sound = new Audio(require("../../../resources/audio/screen_changer_part1.wav"));
 		part1Sound.play();
 
 		setTimeout(function () {
@@ -216,7 +224,7 @@ const HamTaker = () => {
 
 		setTimeout(function () {
 			setFailOpacity("0");
-			let part2Sound = new Audio(require("../audio/screen_changer_part2.wav"));
+			let part2Sound = new Audio(require("../../../resources/audio/screen_changer_part2.wav"));
 			part2Sound.play();
 		}, 2200);
 
@@ -293,11 +301,11 @@ const HamTaker = () => {
 						<h2>HAMTAKER</h2>
 					</div>
 				</div>
-				<GameController keyDown={keyDown} />
+				{/* <GameController keyDown={keyDown} /> */}
 			</div>
-			<Characters />
+			{/* <Characters /> */}
 		</div>
 	);
 };
 
-export default HamTaker;
+export default Game;
