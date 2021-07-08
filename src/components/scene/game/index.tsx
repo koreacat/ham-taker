@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from "react";
+import GameController from "../../gameController";
+import Characters from "../../characters";
 import "./game.scss";
 
 enum LandType {
@@ -299,9 +301,9 @@ const Game = () => {
 						<h2>HAMTAKER</h2>
 					</div>
 				</div>
-				{/* <GameController keyDown={keyDown} /> */}
+				<GameController keyDown={keyDown} />
 			</div>
-			{/* <Characters /> */}
+			<Characters />
 		</div>
 	);
 };

@@ -9,7 +9,7 @@ function App() {
 	return (
 		<ManagerProvider value={rootManagers}>
 			<div className="app">
-				{rootManagers.sceneManager.getScene()}
+				{rootManagers.sceneManager.scene}
 			</div>
 		</ManagerProvider>
 	);
