@@ -1,15 +1,17 @@
 import React from 'react';
 import './App.css';
-import { Managers } from './managers';
-import { useManagers } from './util/ManagerProvider';
+import {getManagers, Managers} from './managers';
+import {ManagerProvider} from './util/ManagerProvider';
 
 function App() {
-	const {sceneManager} = useManagers();
+	const rootManagers: Managers = getManagers();
 
 	return (
-		<div className="app">
-			{sceneManager.getScene()}
-		</div>
+		<ManagerProvider value={rootManagers}>
+			<div className="app">
+				{rootManagers.sceneManager.getScene()}
+			</div>
+		</ManagerProvider>
 	);
 }
 

@@ -18,31 +18,39 @@ $imgPath: '../../resources/img/characters/';
         background-position: center center;
         background-size: contain;
     }
-
+    
     .lucifer {
         background-image: url($imgPath + 'imgLucifer.gif');
     }
+    
     .malina {
         background-image: url($imgPath + 'imgMalina.gif');
     }
+    
     .modeus {
         background-image: url($imgPath + 'imgModeus.gif');
     }
+    
     .azazel {
         background-image: url($imgPath + 'imgAzazel.gif');
     }
+    
     .justice {
         background-image: url($imgPath + 'imgJustice.gif');
     }
+    
     .judgement {
         background-image: url($imgPath + 'imgJudgement.gif');
     }
+    
     .zdrada {
         background-image: url($imgPath + 'imgZdrada.gif');
     }
+    
     .cerberus {
         background-image: url($imgPath + 'imgCerberus.gif');
     }
+    
     .pandemonica {
         background-image: url($imgPath + 'imgPandemonica.gif');
     }

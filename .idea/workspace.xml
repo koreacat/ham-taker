@@ -1,13 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d8a832cb-10b5-45cc-830f-34a242fb762d" name="Default Changelist" comment="" />
+    <list default="true" id="d8a832cb-10b5-45cc-830f-34a242fb762d" name="Default Changelist" comment="s">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/characters/characters.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/characters/characters.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/characters/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/characters/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gameController/gameController.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gameController/gameController.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gameController/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gameController/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/scene/game/game.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/scene/game/game.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/scene/game/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/scene/game/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/scene/loading/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/scene/loading/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/SceneManager.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/SceneManager.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/managers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/managers/index.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="MERGE" />
+  </component>
   <component name="ProjectId" id="1v1DfIGLwaOb7Z6TS4xrvcZTcif" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -19,8 +36,11 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Users\jgm0531.MIDASIT\jgmProjects\ham-taker\node_modules\typescript\lib" />
   </component>
@@ -51,7 +71,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1625720802820</updated>
-      <workItem from="1625720806018" duration="555000" />
+      <workItem from="1625720806018" duration="742000" />
+      <workItem from="1625721873065" duration="611000" />
+      <workItem from="1625734328209" duration="268000" />
     </task>
     <servers />
   </component>
@@ -59,21 +81,37 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1233" height="255" key="GridCell.Tab.0.bottom" timestamp="1625721381609">
+    <state x="975" y="178" key="CommitChangelistDialog2" timestamp="1625734543887">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1233" height="255" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625721381609" />
-    <state width="1233" height="255" key="GridCell.Tab.0.center" timestamp="1625721381609">
+    <state x="975" y="178" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1625734543887" />
+    <state x="1030" y="297" key="FileChooserDialogImpl" timestamp="1625727962069">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1233" height="255" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625721381609" />
-    <state width="1233" height="255" key="GridCell.Tab.0.left" timestamp="1625721381608">
+    <state x="1030" y="297" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1625727962069" />
+    <state width="1395" height="265" key="GridCell.Tab.0.bottom" timestamp="1625734456179">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1233" height="255" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625721381608" />
-    <state width="1233" height="255" key="GridCell.Tab.0.right" timestamp="1625721381609">
+    <state width="1395" height="265" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1625734456179" />
+    <state width="1395" height="265" key="GridCell.Tab.0.center" timestamp="1625734456179">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1233" height="255" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625721381609" />
+    <state width="1395" height="265" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1625734456179" />
+    <state width="1395" height="265" key="GridCell.Tab.0.left" timestamp="1625734456179">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1395" height="265" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1625734456179" />
+    <state width="1395" height="265" key="GridCell.Tab.0.right" timestamp="1625734456179">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1395" height="265" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1625734456179" />
+    <state x="1055" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625734329428">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1055" y="459" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1625734329428" />
+    <state x="1034" y="310" width="672" height="678" key="search.everywhere.popup" timestamp="1625734607234">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1034" y="310" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1625734607234" />
   </component>
 </project>

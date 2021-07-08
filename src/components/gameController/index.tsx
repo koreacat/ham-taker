@@ -1,10 +1,11 @@
 import React from "react";
 import classNames from "classnames/bind";
 import styles from "./gameController.module.scss";
+
 const cx = classNames.bind(styles);
 
 interface GameControllerProp {
-    keyDown: (e: any) => void;
+	keyDown: (e: any) => void;
 }
 
 const GameController = ({keyDown}: GameControllerProp) => {
@@ -14,25 +15,25 @@ const GameController = ({keyDown}: GameControllerProp) => {
 				<div
 					className={cx("button", "up")}
 					onClick={() => {
-						keyDown({ key: "ArrowUp" });
+						keyDown({key: "ArrowUp"});
 					}}
 				/>
 				<div
 					className={cx("button", "down")}
 					onClick={() => {
-						keyDown({ key: "ArrowDown" });
+						keyDown({key: "ArrowDown"});
 					}}
 				/>
 				<div
 					className={cx("button", "left")}
 					onClick={() => {
-						keyDown({ key: "ArrowLeft" });
+						keyDown({key: "ArrowLeft"});
 					}}
 				/>
 				<div
 					className={cx("button", "right")}
 					onClick={() => {
-						keyDown({ key: "ArrowRight" });
+						keyDown({key: "ArrowRight"});
 					}}
 				/>
 			</div>

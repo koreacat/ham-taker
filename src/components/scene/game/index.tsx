@@ -1,30 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./game.scss";
 
 enum LandType {
-    space,
-    land,
-    rock,
-    thorn,
-    goal,
-    spikeTrap,
-    skeleton,
+	space,
+	land,
+	rock,
+	thorn,
+	goal,
+	spikeTrap,
+	skeleton,
 }
 
-
-
 const startPoint = () => {
-	return { x: 0, y: 0 };
+	return {x: 0, y: 0};
 };
 
 const {
-    space: SPACE,
-    land: LAND,
-    rock: ROCK,
-    thorn: THORN,
-    goal: GOAL,
-    spikeTrap: SPIKE_TRAP,
-    skeleton: SKELETON,
+	space: SPACE,
+	land: LAND,
+	rock: ROCK,
+	thorn: THORN,
+	goal: GOAL,
+	spikeTrap: SPIKE_TRAP,
+	skeleton: SKELETON,
 } = LandType;
 
 const stage = () => {
@@ -72,7 +70,7 @@ const Game = () => {
 					!movable(coordinates.y - 1, coordinates.x, "UP")
 				)
 					return;
-				setCoordinates({ x: coordinates.x, y: coordinates.y - 1 });
+				setCoordinates({x: coordinates.x, y: coordinates.y - 1});
 				break;
 			case "ArrowDown":
 				if (
@@ -80,7 +78,7 @@ const Game = () => {
 					!movable(coordinates.y + 1, coordinates.x, "DOWN")
 				)
 					return;
-				setCoordinates({ x: coordinates.x, y: coordinates.y + 1 });
+				setCoordinates({x: coordinates.x, y: coordinates.y + 1});
 				break;
 			case "ArrowLeft":
 				if (
@@ -88,7 +86,7 @@ const Game = () => {
 					!movable(coordinates.y, coordinates.x - 1, "LEFT")
 				)
 					return;
-				setCoordinates({ x: coordinates.x - 1, y: coordinates.y });
+				setCoordinates({x: coordinates.x - 1, y: coordinates.y});
 				break;
 			case "ArrowRight":
 				if (
@@ -96,7 +94,7 @@ const Game = () => {
 					!movable(coordinates.y, coordinates.x + 1, "RIGHT")
 				)
 					return;
-				setCoordinates({ x: coordinates.x + 1, y: coordinates.y });
+				setCoordinates({x: coordinates.x + 1, y: coordinates.y});
 				break;
 		}
 	};
@@ -203,7 +201,7 @@ const Game = () => {
 		setTimeout(function () {
 			setData(stage);
 			setLife(20);
-			setCoordinates({ x: 0, y: 0 });
+			setCoordinates({x: 0, y: 0});
 			setClear(false);
 			setSpike(false);
 		}, 350);
@@ -270,11 +268,11 @@ const Game = () => {
 											className={
 												point === LandType.spikeTrap
 													? spike
-														? "spikeTrapOn"
-														: "spikeTrapOff"
+													? "spikeTrapOn"
+													: "spikeTrapOff"
 													: LandType[point]
 											}
-											style={{ width: distance, height: distance }}
+											style={{width: distance, height: distance}}
 										/>
 									);
 								})}
@@ -285,18 +283,18 @@ const Game = () => {
 				</div>
 				<div
 					className={"hamTakerSuccess"}
-					style={{ display: clear ? "block" : "none" }}
+					style={{display: clear ? "block" : "none"}}
 				>
-					<div className={"hamTakerSuccessLeft"} />
-					<div className={"hamTakerSuccessRight"} />
+					<div className={"hamTakerSuccessLeft"}/>
+					<div className={"hamTakerSuccessRight"}/>
 					<div className={"hamTakerSuccessSentence"}>
 						<h3>GLORIOUS</h3>
 						<h2>SUCCESS</h2>
 					</div>
 				</div>
 				<div className={"hamTakerFail"}>
-					<div className={"hamTakerFailUp"} style={failStyle} />
-					<div className={"hamTakerFailDown"} style={failStyle} />
+					<div className={"hamTakerFailUp"} style={failStyle}/>
+					<div className={"hamTakerFailDown"} style={failStyle}/>
 					<div className={"hamTakerFailCenter"} style={failStyleCenter}>
 						<h2>HAMTAKER</h2>
 					</div>
