@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {DISTANCE} from "../index";
 
 interface Ham {
@@ -8,6 +8,18 @@ interface Ham {
 
 const Ham = (props: Ham) => {
 	const {keyDown, coordinates} = props;
+
+	useEffect(() => {
+		focusHam();
+		window.addEventListener("keydown", focusHam);
+		return () => {
+			window.removeEventListener("keydown", focusHam);
+		};
+	});
+
+	const focusHam = () => {
+		document.getElementById("ham")?.focus();
+	};
 
 	const hamTakerStyle = {
 		width: DISTANCE,

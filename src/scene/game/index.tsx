@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import GameController from "./gameController";
 import Characters from "./characters";
 import "./game.scss";
@@ -36,17 +36,6 @@ const Game = () => {
 	const [failOpacity, setFailOpacity] = useState("0");
 	const [controllable, setControllable] = useState(true);
 	const [data, setData] = useState(stage01);
-
-	useEffect(() => {
-		window.addEventListener("keydown", event);
-		return () => {
-			window.removeEventListener("keydown", event);
-		};
-	});
-
-	const event = () => {
-		document.getElementById("ham")?.focus();
-	};
 
 	const keyDown = (e: any) => {
 		if (!controllable) return;
@@ -165,7 +154,7 @@ const Game = () => {
 			if (data[dy][dx] === LAND) {
 				data[dy][dx] = ROCK;
 				data[y][x] = LAND;
-				playStoneKickSound()
+				playStoneKickSound();
 				return true;
 			}
 		}
