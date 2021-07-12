@@ -1,5 +1,5 @@
 import { ReactElement } from "react";
-import Game from "../components/scene/game";
+import Game from "../scene/game";
 
 class SceneManager {
 	private _scene = <Game/>;

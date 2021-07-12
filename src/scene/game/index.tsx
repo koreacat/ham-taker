@@ -1,47 +1,33 @@
 import React, {useEffect, useState} from "react";
-import GameController from "../../gameController";
-import Characters from "../../characters";
+import GameController from "./gameController";
+import Characters from "./characters";
 import "./game.scss";
+import {useManagers} from "../../util/ManagerProvider";
+import {LandType, LAND, ROCK, THORN, GOAL, SPIKE_TRAP, SKELETON} from "../../managers/MapManager";
+import Ham from "./ham";
 
-enum LandType {
-	space,
-	land,
-	rock,
-	thorn,
-	goal,
-	spikeTrap,
-	skeleton,
-}
+export const DISTANCE = 50;
 
 const startPoint = () => {
 	return {x: 0, y: 0};
 };
 
-const {
-	space: SPACE,
-	land: LAND,
-	rock: ROCK,
-	thorn: THORN,
-	goal: GOAL,
-	spikeTrap: SPIKE_TRAP,
-	skeleton: SKELETON,
-} = LandType;
-
-const stage = () => {
-	return [
-		[LAND, THORN, SPACE, LAND, LAND, LAND],
-		[LAND, ROCK, LAND, LAND, ROCK, LAND],
-		[LAND, LAND, SPACE, THORN, SPIKE_TRAP, THORN],
-		[SPIKE_TRAP, SKELETON, LAND, ROCK, LAND, SPIKE_TRAP],
-		[THORN, SKELETON, LAND, LAND, ROCK, LAND],
-		[SPIKE_TRAP, SPACE, THORN, SPACE, SPIKE_TRAP, ROCK],
-		[THORN, SKELETON, ROCK, THORN, ROCK, LAND],
-		[SPIKE_TRAP, LAND, LAND, ROCK, LAND, GOAL]
-	];
-}
-
 const Game = () => {
-	const distance = 50;
+	const {audioManager, mapManager} = useManagers();
+	const {
+		playMoveSound,
+		playSpikeSound,
+		playSuccessSound,
+		playStoneKickSound,
+		playDeathSound,
+		playScreenChangerPart1Sound,
+		playScreenChangerPart2Sound,
+	} = audioManager;
+
+	const {
+		stage01
+	} = mapManager;
+
 	const [clear, setClear] = useState(false);
 	const [coordinates, setCoordinates] = useState(startPoint);
 	const [life, setLife] = useState(20);
@@ -49,7 +35,7 @@ const Game = () => {
 	const [failHeight, setFailHeight] = useState("0");
 	const [failOpacity, setFailOpacity] = useState("0");
 	const [controllable, setControllable] = useState(true);
-	const [data, setData] = useState(stage);
+	const [data, setData] = useState(stage01);
 
 	useEffect(() => {
 		window.addEventListener("keydown", event);
@@ -107,35 +93,30 @@ const Game = () => {
 			return;
 		}
 		switch (data[y][x]) {
-			case LandType.land:
+			case LAND:
 				setSpike(!spike);
 				setLife(life - 1);
-				let moveSound01 = new Audio(require("../../../resources/audio/move.wav"));
-				moveSound01.play();
+				playMoveSound();
 				return true;
-			case LandType.thorn:
+			case THORN:
 				setSpike(!spike);
 				if (life - 2 < 0) {
 					reset();
 					return;
 				}
 				setLife(life - 2);
-				let spikesSound01 = new Audio(require("../../../resources/audio/spikes.wav"));
-				spikesSound01.play();
+				playSpikeSound();
 				return true;
-			case LandType.goal:
+			case GOAL:
 				setSpike(!spike);
 				setLife(life - 1);
-				let moveSound02 = new Audio(require("../../../resources/audio/move.wav"));
-				moveSound02.play();
-
-				let successSound = new Audio(require("../../../resources/audio/success.wav"));
-				successSound.play();
+				playMoveSound();
+				playSuccessSound();
 				setClear(true);
 				return true;
-			case LandType.skeleton:
+			case SKELETON:
 				return false;
-			case LandType.spikeTrap:
+			case SPIKE_TRAP:
 				setSpike(!spike);
 				if (!spike && life - 2 < 0) {
 					reset();
@@ -143,24 +124,21 @@ const Game = () => {
 				}
 
 				if (spike) {
-					let moveSound03 = new Audio(require("../../../resources/audio/move.wav"));
-					moveSound03.play();
+					playMoveSound();
 					setLife(life - 1);
 				} else {
-					let spikesSound02 = new Audio(require("../../../resources/audio/spikes.wav"));
-					spikesSound02.play();
+					playSpikeSound();
 					setLife(life - 2);
 				}
 				return true;
-			case LandType.rock:
+			case ROCK:
 				if (moveRock(y, x, dir)) {
 					setSpike(!spike);
 					if (
-						data[coordinates.y][coordinates.x] === LandType.spikeTrap &&
+						data[coordinates.y][coordinates.x] === SPIKE_TRAP &&
 						!spike
 					) {
-						let spikesSound = new Audio(require("../../../resources/audio/spikes.wav"));
-						spikesSound.play();
+						playSpikeSound();
 						setLife(life - 2);
 					} else {
 						setLife(life - 1);
@@ -184,11 +162,10 @@ const Game = () => {
 		//진행 방향의 앞칸에 돌 옮길 수 있는지 체크
 		if (data[dy] && data[dy][dx]) {
 			//진행 방향의 앞칸이 땅이나 가시, 트랩, 골일 경우 그 방향으로 돌 옮기기
-			if (data[dy][dx] === LandType.land) {
-				data[dy][dx] = LandType.rock;
-				data[y][x] = LandType.land;
-				let stoneSound = new Audio(require("../../../resources/audio/stone_kick.wav"));
-				stoneSound.play();
+			if (data[dy][dx] === LAND) {
+				data[dy][dx] = ROCK;
+				data[y][x] = LAND;
+				playStoneKickSound()
 				return true;
 			}
 		}
@@ -197,11 +174,10 @@ const Game = () => {
 
 	const reset = () => {
 		setControllable(false);
-		// let deathSound = new Audio(require('./sound/death.wav'));
-		// deathSound.play();
+		playDeathSound();
 		failAnimation();
 		setTimeout(function () {
-			setData(stage);
+			setData(stage01);
 			setLife(20);
 			setCoordinates({x: 0, y: 0});
 			setClear(false);
@@ -215,30 +191,19 @@ const Game = () => {
 
 	const failAnimation = () => {
 		setFailHeight("50%");
-		let part1Sound = new Audio(require("../../../resources/audio/screen_changer_part1.wav"));
-		part1Sound.play();
-
+		playScreenChangerPart1Sound();
 		setTimeout(function () {
 			setFailOpacity("100");
 		}, 350);
 
 		setTimeout(function () {
 			setFailOpacity("0");
-			let part2Sound = new Audio(require("../../../resources/audio/screen_changer_part2.wav"));
-			part2Sound.play();
+			playScreenChangerPart2Sound();
 		}, 2200);
 
 		setTimeout(function () {
 			setFailHeight("0");
 		}, 2500);
-	};
-
-	const hamTakerStyle = {
-		width: distance,
-		height: distance,
-		transform: `translate(${coordinates.x * distance}px, ${
-			coordinates.y * distance
-		}px)`,
 	};
 
 	const failStyle = {
@@ -253,12 +218,9 @@ const Game = () => {
 		<div className={"hamTaker"}>
 			<div className={"hamTakerWrap"}>
 				<div className={"map"}>
-					<div
-						id={"ham"}
-						className={"ham"}
-						tabIndex={0}
-						onKeyDown={keyDown}
-						style={hamTakerStyle}
+					<Ham
+						keyDown={keyDown}
+						coordinates={coordinates}
 					/>
 					{data.map((line, x) => {
 						return (
@@ -268,13 +230,13 @@ const Game = () => {
 										<p
 											key={x + "" + y}
 											className={
-												point === LandType.spikeTrap
+												point === SPIKE_TRAP
 													? spike
 													? "spikeTrapOn"
 													: "spikeTrapOff"
 													: LandType[point]
 											}
-											style={{width: distance, height: distance}}
+											style={{width: DISTANCE, height: DISTANCE}}
 										/>
 									);
 								})}
