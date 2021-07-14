@@ -1,15 +1,23 @@
-import { ReactElement } from "react";
-import Game from "../scene/game";
+import { action, observable } from "mobx";
+
+export type SCENE = 'LOADING' | 'GAME';
 
 class SceneManager {
-	private _scene = <Game/>;
+	@observable private _scene: SCENE = 'LOADING';
 
+	@action
 	get scene() {
 		return this._scene
 	};
 
-	setScene = (scene: ReactElement) => {
+	@action
+	setScene = (scene: SCENE) => {
 		this._scene = scene;
+	};
+
+	@action
+	startGame = () => {
+		this._scene = 'GAME';
 	};
 
 }

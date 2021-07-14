@@ -1,38 +1,47 @@
+import soundHamTaker from "../resources/audio/soundHamTaker.mp3";
+import soundMove from "../resources/audio/soundMove.wav";
+import soundSpikes from "../resources/audio/soundSpikes.wav";
+import soundSuccess from "../resources/audio/soundSuccess.wav";
+import soundStoneKick from "../resources/audio/soundStoneKick.wav";
+import soundDeath from "../resources/audio/soundDeath.wav";
+import soundChanger01 from "../resources/audio/soundChanger01.wav";
+import soundChanger02 from "../resources/audio/soundChanger02.wav";
+
 class AudioManager {
-	private _moveSound = new Audio(require("../resources/audio/move.wav"));
-	private _spikeSound = new Audio(require("../resources/audio/spikes.wav"));
-	private _successSound = new Audio(require("../resources/audio/success.wav"));
-	private _stoneKickSound = new Audio(require("../resources/audio/stone_kick.wav"));
-	private _deathSound = new Audio(require("../resources/audio/death.wav"));
-	private _screenChangerPart1Sound = new Audio(require("../resources/audio/screen_changer_part1.wav"));
-	private _screenChangerPart2Sound = new Audio(require("../resources/audio/screen_changer_part2.wav"));
+	private play = (sound: any) => {
+		new Audio(sound).play();
+	};
+
+	playHamTakerSound = () => {
+		this.play(soundHamTaker);
+	};
 
 	playMoveSound = () => {
-		this._moveSound.play();
+		this.play(soundMove);
 	};
 
 	playSpikeSound = () => {
-		this._spikeSound.play();
+		this.play(soundSpikes);
 	};
 
 	playSuccessSound = () => {
-		this._successSound.play();
+		this.play(soundSuccess);
 	};
 
 	playStoneKickSound = () => {
-		this._stoneKickSound.play();
+		this.play(soundStoneKick);
 	};
 
 	playDeathSound = () => {
-		this._deathSound.play();
+		this.play(soundDeath);
 	};
 
 	playScreenChangerPart1Sound = () => {
-		this._screenChangerPart1Sound.play();
+		this.play(soundChanger01);
 	};
 
 	playScreenChangerPart2Sound = () => {
-		this._screenChangerPart2Sound.play();
+		this.play(soundChanger02);
 	};
 }
 

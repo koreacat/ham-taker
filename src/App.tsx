@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import {getManagers, Managers} from './managers';
+import Scene from './scene';
 import {ManagerProvider} from './util/ManagerProvider';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
 	return (
 		<ManagerProvider value={rootManagers}>
 			<div className="app">
-				{rootManagers.sceneManager.scene}
+				<Scene/>
 			</div>
 		</ManagerProvider>
 	);
