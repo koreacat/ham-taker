@@ -1,13 +1,13 @@
-import { SCENE } from "../../managers/SceneManager";
+import { observer } from "mobx-react";
+import { Scene } from "..";
 import { useManagers } from "../../util/ManagerProvider";
 
 interface Loading {
-	setScene: (scene: SCENE) => void;
+	setScene: (scene: Scene) => void;
 }
 
-const Loading = (props: Loading) => {
-	const {sceneManager, audioManager} = useManagers();
-	const {setScene} = props;
+const Loading = ({setScene}: Loading) => {
+	const {audioManager} = useManagers();
 
 	const onClick = () => {
 		audioManager.playHamTakerSound();
@@ -21,4 +21,4 @@ const Loading = (props: Loading) => {
 	)
 };
 
-export default Loading;
+export default observer(Loading);

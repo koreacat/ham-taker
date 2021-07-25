@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import {getManagers, Managers} from './managers';
 import Scene from './scene';

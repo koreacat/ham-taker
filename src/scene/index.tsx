@@ -1,18 +1,17 @@
 import { observer } from "mobx-react";
-import { useManagers } from "../util/ManagerProvider";
-import Loading from "./loading";
+import { useState } from "react";
 import Game from "./game";
+import Loading from "./loading";
+
+export type Scene = 'LOADING' | 'GAME';
 
 const Scene = () => {
-    const {sceneManager} = useManagers();
-    const {scene, setScene} = sceneManager;
+    const [scene, setScene] = useState<Scene>('LOADING');
 
-    switch (scene) {
-        case 'LOADING': return <Loading setScene={setScene}/>
-        case 'GAME': return <Game/>
-        default: return <></>
+    switch(scene) {
+        case 'LOADING': return <Loading setScene={setScene}/>;
+        case 'GAME': return <Game/>; 
     }
-
-};
+}
 
 export default observer(Scene);
