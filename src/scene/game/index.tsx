@@ -24,9 +24,7 @@ const Game = () => {
 		playScreenChangerPart2Sound,
 	} = audioManager;
 
-	const {
-		stage01
-	} = mapManager;
+	const {stage01} = mapManager;
 
 	const [clear, setClear] = useState(false);
 	const [coordinates, setCoordinates] = useState(startPoint);
@@ -163,7 +161,7 @@ const Game = () => {
 
 	const reset = () => {
 		setControllable(false);
-		playDeathSound();
+		// playDeathSound();
 		failAnimation();
 		setTimeout(function () {
 			setData(stage01);

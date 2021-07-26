@@ -1,6 +1,7 @@
 import { observer } from "mobx-react";
 import { Scene } from "..";
 import { useManagers } from "../../util/ManagerProvider";
+import "./loading.scss";
 
 interface Loading {
 	setScene: (scene: Scene) => void;
@@ -15,8 +16,8 @@ const Loading = ({setScene}: Loading) => {
 	};
 
 	return (
-		<div>
-			<button onClick={onClick}>start</button>
+		<div className={'loadingWrap'}>
+			<button className={'startBtn'} onClick={onClick}>start</button>
 		</div>
 	)
 };

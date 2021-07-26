@@ -7,7 +7,12 @@ export enum LandType {
 	SPIKE_TRAP,
 	SKELETON,
 }
+
 export const {SPACE, LAND, ROCK, THORN, GOAL, SPIKE_TRAP, SKELETON} = LandType;
+
+const stageParser = (stage: LandType[][]) => {
+	return JSON.parse(JSON.stringify(stage));
+};
 
 class MapManager {
 	private _stage01 = [
@@ -22,7 +27,7 @@ class MapManager {
 	];
 
 	get stage01(): LandType[][] {
-		return this._stage01;
+		return stageParser(this._stage01);
 	}
 
 
