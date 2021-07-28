@@ -17,7 +17,10 @@ const Loading = ({setScene}: Loading) => {
 
 	return (
 		<div className={'loadingWrap'}>
-			<button className={'startBtn'} onClick={onClick}>start</button>
+			<div className={'textWrap'}>
+				<span className={'text'}>당신은 주변이 심연으로 둘러싸인 것을 알아차립니다.</span>
+				<button className={'startBtn'} onClick={onClick}>●</button>
+			</div>
 		</div>
 	)
 };
