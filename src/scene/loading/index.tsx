@@ -1,5 +1,6 @@
 import { observer } from "mobx-react";
 import { Scene } from "..";
+import { ArrowButton } from "../../components/ArrowButton";
 import { useManagers } from "../../util/ManagerProvider";
 import "./loading.scss";
 
@@ -17,9 +18,11 @@ const Loading = ({setScene}: Loading) => {
 
 	return (
 		<div className={'loadingWrap'}>
+			<div className={'cover'}/>
 			<div className={'textWrap'}>
 				<span className={'text'}>당신은 주변이 심연으로 둘러싸인 것을 알아차립니다.</span>
-				<button className={'startBtn'} onClick={onClick}>●</button>
+				<span className={'text'}>아무 버튼을 눌러 계속하기.</span>
+				<ArrowButton onClick={onClick}/>
 			</div>
 		</div>
 	)
