@@ -4,11 +4,11 @@ import styles from "./gameController.module.scss";
 
 const cx = classNames.bind(styles);
 
-interface GameControllerProp {
+interface GameControllerProps {
 	keyDown: (e: any) => void;
 }
 
-const GameController = ({keyDown}: GameControllerProp) => {
+const GameController = ({keyDown}: GameControllerProps) => {
 	return (
 		<div className={cx("gameControllerWrap")}>
 			<div className={cx("buttonsWrap")}>

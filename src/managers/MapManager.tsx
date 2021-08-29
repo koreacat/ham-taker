@@ -15,7 +15,7 @@ const stageParser = (stage: LandType[][]) => {
 };
 
 class MapManager {
-	private _stage01 = [
+	static _stage01 = [
 		[LAND, THORN, SPACE, LAND, LAND, LAND],
 		[LAND, ROCK, LAND, LAND, ROCK, LAND],
 		[LAND, LAND, SPACE, THORN, SPIKE_TRAP, THORN],
@@ -26,7 +26,7 @@ class MapManager {
 		[SPIKE_TRAP, LAND, LAND, ROCK, LAND, GOAL]
 	];
 
-	get stage01(): LandType[][] {
+	static get stage01(): LandType[][] {
 		return stageParser(this._stage01);
 	}
 

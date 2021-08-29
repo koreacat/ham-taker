@@ -1,0 +1,80 @@
+$imgPath: '/resources/img/';
+
+.map {
+    p {
+        display: inline-block;
+    }
+    
+    div {
+        font-size: 0;
+    }
+    
+    .mapTile {
+        p::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+        }
+    }
+    
+    .SPACE {
+        background: #000000;
+    }
+    
+    .LAND {
+        background: #700c29;
+    }
+    
+    .ROCK {
+        background: #700c29;
+    }
+    
+    .ROCK::after {
+        background-image: url($imgPath + 'imgRock.png');
+        transform: translateY(-10px);
+    }
+    
+    .THORN {
+        background: #700c29;
+    }
+    
+    .THORN::after {
+        background-image: url($imgPath + 'imgSpikeTrapOn.png');
+    }
+    
+    .GOAL {
+        background: green;
+    }
+    
+    .spikeTrapOn {
+        background: #700c29;
+    }
+    
+    .spikeTrapOn::after {
+        background-image: url($imgPath + 'imgSpikeTrapOn.png');
+        transition: all 0.2s;
+    }
+    
+    .spikeTrapOff {
+        background: #700c29;
+    }
+    
+    .spikeTrapOff::after {
+        background-image: url($imgPath + 'imgSpikeTrapOff.png');
+        transition: all 0.2s;
+    }
+    
+    .SKELETON {
+        background: #700c29;
+    }
+    
+    .SKELETON::after {
+        background-image: url($imgPath + 'characters/imgSkeleton.gif');
+        transform: scale(1.3) translateY(-20px);
+    }
+}
+

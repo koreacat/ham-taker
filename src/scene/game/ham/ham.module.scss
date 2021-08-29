@@ -1,0 +1,26 @@
+$imgPath: '/resources/img/';
+
+.ham {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    transition: all 0.15s;
+    font-size: 0;
+    z-index: 1;
+    
+    &:focus {
+        outline: none;
+    }
+}
+
+.ham::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    background-image: url($imgPath + 'characters/imgHellTaker.gif');
+    transform: scale(1.3) translateY(-20px);
+}
