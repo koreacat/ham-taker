@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import { observer } from "mobx-react";
-import { useManagers } from "../../../util/ManagerProvider";
+import { useManagers } from "../../../../util/ManagerProvider";
 import styles from "./success.module.scss";
 
 const cx = classNames.bind(styles);

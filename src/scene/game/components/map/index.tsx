@@ -1,8 +1,8 @@
-import { LandType, SPIKE_TRAP } from "../../../managers/MapManager";
-import { useManagers } from "../../../util/ManagerProvider";
 import classNames from "classnames/bind";
+import { DISTANCE } from "../../../../managers/GameManager";
+import { LandType, SPIKE_TRAP } from "../../../../managers/MapManager";
+import { useManagers } from "../../../../util/ManagerProvider";
 import styles from "./map.module.scss";
-import { DISTANCE } from "../../../managers/GameManager";
 
 const cx = classNames.bind(styles);
 

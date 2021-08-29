@@ -2,7 +2,7 @@ import classNames from "classnames/bind";
 import { observer } from "mobx-react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useManagers } from "../../../util/ManagerProvider";
+import { useManagers } from "../../../../util/ManagerProvider";
 import styles from "./fail.module.scss";
 
 const cx = classNames.bind(styles);

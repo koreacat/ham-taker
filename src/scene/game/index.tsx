@@ -1,11 +1,11 @@
 import "./game.scss";
-import Map from "./map";
-import Ham from "./ham";
-import Life from "./life";
-import Success from "./success";
-import Fail from "./fail";
-import GameController from "./gameController";
-import Characters from "./characters";
+import Map from "./components/map";
+import Ham from "./components/ham";
+import Life from "./components/life";
+import Success from "./components/success";
+import Fail from "./components/fail";
+import GameController from "./components/gameController";
+import Characters from "./components/characters";
 
 const Game = () => {
 	return (

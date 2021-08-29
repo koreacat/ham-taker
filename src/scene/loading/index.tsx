@@ -1,6 +1,6 @@
 import { observer } from "mobx-react";
 import { Scene } from "..";
-import { ArrowButton } from "../../components/ArrowButton";
+import { ArrowButton } from "./components/ArrowButton";
 import { useManagers } from "../../util/ManagerProvider";
 import "./loading.scss";
 

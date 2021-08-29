@@ -1,5 +1,5 @@
-import { useManagers } from "../../../util/ManagerProvider";
 import classNames from "classnames/bind";
+import { useManagers } from "../../../../util/ManagerProvider";
 import styles from "./life.module.scss";
 
 const cx = classNames.bind(styles);

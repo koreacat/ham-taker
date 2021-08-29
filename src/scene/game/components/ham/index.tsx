@@ -1,11 +1,11 @@
 import { observer } from "mobx-react";
 import React, {useEffect} from "react";
-import { GOAL, LAND, ROCK, SKELETON, SPIKE_TRAP, THORN } from "../../../managers/MapManager";
-import { useManagers } from "../../../util/ManagerProvider";
 
 import classNames from "classnames/bind";
 import styles from "./ham.module.scss";
-import { DISTANCE } from "../../../managers/GameManager";
+import { useManagers } from "../../../../util/ManagerProvider";
+import { DISTANCE } from "../../../../managers/GameManager";
+import { GOAL, LAND, ROCK, SKELETON, SPIKE_TRAP, THORN } from "../../../../managers/MapManager";
 
 const cx = classNames.bind(styles);
 
